@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Kata: Entradas de Cine</h3>
+    <p>
+      A partir de una lista de películas, diga al usuarios que películas pueden
+      ver o no, según estas reglas
+    </p>
+    <ol>
+      <li>
+        La edad del usuario tiene que ser mayor o igual a la edad recomendada de
+        la película.
+      </li>
+      <li>Por seguridad, se necesita, nombre, edad</li>
+      <p>Listado de peliculas:</p>
+        <ol>
+          <li>Soy Leyenda, +13</li>
+          <li>Rey León, +3</li>
+          <li>La Marca del Demonio +18</li>
+          <li>A todo Gas +8</li>
+        </ol>
+      </li>
+    </ol>
+
+    <script>
+        let nombreUsuario = prompt('Nombre: ');
+        let edadUsuario = Number(prompt('Edad: '));
+
+        let listadoPeliculas=[
+            {titulo:'Soy Leyenda', edadMinima: 13},
+            {titulo:'Rey León', edadMinima: 3},
+            {titulo:'La marca del demonio', edadMinima: 18},
+            {titulo:'A todo Gas', edadMinima: 8},
+        ];
+
+        
+    </script>
+  </body>
+</html>
+
+

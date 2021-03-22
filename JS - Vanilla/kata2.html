@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      El programa empezará preguntando qué operación vamos a usar. Luego el
+      programa pide los dos números para hacer la operación asignada y mostrarla
+      en un alert()
+    </p>
+
+    <script>
+      let operacion = prompt("Elige: suma, resta...");
+      // #IMPORTANTE convertir a número para hacer cálculos
+      let numero1 = Number(prompt("Número 1"));
+      let numero2 = Number(prompt("Número 2"));
+
+      switch (operacion) {
+        case "suma":
+          console.log(Suma(numero1, numero2));
+          break;
+
+        case "resta":
+          console.log(Resta(numero1, numero2));
+          break;
+
+        default:
+          console.log("Introduce una operación correcta.");
+          break;
+      }
+
+      function Suma(n1, n2) {
+        return n1 + n2;
+      }
+
+      function Resta(n1, n2) {
+        return n1 - n2;
+      }
+    </script>
+  </body>
+</html>

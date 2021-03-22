@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>KATA: Letra del DNI</h3>
+    <p>
+      Vamos a crear una función que valide que un número de DNI y una letra son
+      compatibles para ello, necesitamos el siguiente algoritmo.
+    </p>
+    <ol>
+      <li>Realizar el módulo del número del DNI entre 23</li>
+      <li>
+        El resultado de ese módulo es la posición del siguiente array.
+        TRWAGMYFPDXBNJZSQVHLCKET
+      </li>
+    </ol>
+
+    <script>
+      let dni = Number(prompt("Introduce DNI: "));
+      let letraDni = prompt("Introduce la letra del DNI: ");
+
+      VerificarDni(dni, letraDni);
+
+      function VerificarDni(numDni, lDni) {
+        let patron = "TRWAGMYFPDXBNJZSQVHLCKET";
+        let letraPaton = patron[numDni % 23];
+
+        if (letraPaton === lDni) {
+          console.log("DNI ok");
+        } else {
+          console.log("Error DNI");
+        }
+      }
+    </script>
+  </body>
+</html>
