@@ -19,20 +19,42 @@
         <button onclick="calculaPerimetro(document.getElementById('radio').value)">Calcula perímetro</button>
         <button onclick="calculaArea(document.getElementById('radio').value)">Calcula área</button>
         <button onclick="borrar()">Borrar</button>
+        <button onclick="borrarTodos()">Borrar todo</button>
     </div>
-    <div id="restultado"></div>
+    <p>Resultados: </p>
+    <p id="resultados"></p>
 
     <script>
         const PI = 3.14;
+        let resultados = document.getElementById('resultados');
 
         function calculaPerimetro(radio) {
             let perimetro = 2 * PI * radio;
-            console.log(perimetro);
+            addHtml(perimetro);
         }
 
         function calculaArea(radio) {
             area = PI * (radio ** 2);
-            console.log(area);
+            addHtml(area);
+        }
+
+        function addHtml(datos) {
+            let parrafo = document.createElement("p");
+            parrafo.innerHTML = datos;
+            resultados.appendChild(parrafo);
+        }
+        function borrar() {
+            document.getElementById('radio').value = " ";
+            if (resultados.firstChild) {
+                resultados.removeChild(resultados.firstChild)
+            }
+        }
+
+        function borrarTodos() {
+            document.getElementById('radio').value = " ";
+            while (resultados.firstChild) {
+                resultados.removeChild(resultados.firstChild)
+            }
         }
     </script>
 </body>
