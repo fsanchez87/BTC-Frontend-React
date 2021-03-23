@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>kata 2</h3>
+    <p>Crea un programa para que cuente todos los caracteres usados en una frase usando arrows functions: Hola Mundo
+        (h=1, o=2, l=1 ... ) En este caso realizaremos un programa capaz de contar cualquier carácter.</p>
+
+    <script>
+        //creamos la funcion contador
+        let contador = string => {
+            return string.split('').reduce((total, letter) => {
+                total[letter] ? total[letter]++ : total[letter] = 1;
+                return total;
+            }, {});
+        };
+        //depositamos el resultado que retorna la función a una variable
+        let resultado = contador("Hola mundo");
+        console.log(resultado);
+    </script>
+</body>
+
+</html>

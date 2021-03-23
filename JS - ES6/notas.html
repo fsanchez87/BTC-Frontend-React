@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Arrow Function
+        const Resta = (a, b) => {
+            return a - b;
+        }
+        console.log(Resta(5, 3))
+
+        // Inline
+        const Suma = (a, b) => a + b;
+        console.log(Suma(5, 3))
+
+        // Parámetro único
+        const Elevar = a => a * a;
+        console.log(Elevar(5));
+
+        // Retornando Objetos
+        const Pokemon = nombre => ({ Pokemon: nombre });
+
+        // Ejemplo uso real
+        // El método map() crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
+        let singulares = ['manzana', 'platano', 'naranja'];
+        let plurales = singulares.map(fruta => fruta + 's');
+        console.log(plurales);
+    </script>
+</body>
+
+</html>
