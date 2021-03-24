@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kata III: Parámetros por defecto</title>
+  </head>
+  <body>
+    <!-- Crea un programa que genere nombres aleatorios de robots tipo RX837 o RX811 -->
+    <script>
+      const generateName = (numero, prefijo = "RX") => prefijo + numero;
+      let numAleatorio = Math.floor(Math.random() * 999);
+      console.log(`El nombre del robot es: ${generateName(numAleatorio)}`);
+    </script>
+  </body>
+</html>

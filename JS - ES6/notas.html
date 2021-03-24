@@ -1,39 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <script>
-        // Arrow Function
-        const Resta = (a, b) => {
-            return a - b;
-        }
-        console.log(Resta(5, 3))
+      //////////////////////
+      // ARROW FUNCTIONS //
+      ////////////////////
+      const Resta = (a, b) => {
+        return a - b;
+      };
+      console.log(Resta(5, 3));
 
-        // Inline
-        const Suma = (a, b) => a + b;
-        console.log(Suma(5, 3))
+      // Arrow Function Inline
+      const Suma = (a, b) => a + b;
+      console.log(Suma(5, 3));
 
-        // Parámetro único
-        const Elevar = a => a * a;
-        console.log(Elevar(5));
+      // Arrow Function Parámetro único
+      const Elevar = (a) => a * a;
+      console.log(Elevar(5));
 
-        // Retornando Objetos
-        const Pokemon = nombre => ({ Pokemon: nombre });
+      // Arrow Function Retornando Objetos
+      const Pokemon = (nombre) => ({
+        Pokemon: nombre,
+      });
 
-        // Ejemplo uso real
-        // El método map() crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
-        let singulares = ['manzana', 'platano', 'naranja'];
-        let plurales = singulares.map(fruta => fruta + 's');
-        console.log(plurales);
+      // Arrow Function Ejemplo uso real
+      let singulares = ["manzana", "platano", "naranja"];
+      let plurales = singulares.map((fruta) => fruta + "s");
+      console.log(plurales);
+
+      ////////////////////////////////////
+      // !PÁRAMETROS CON VALOR POR DEFECTO
+      ///////////////////////////////////
+
+      let getPrecioFinal = (precio, impuesto = 0.7) =>
+        precio + precio * impuesto;
+      getPrecioFinal(500); // 850
+
+      /**
+       * !OPERADOR SPREAD / REST ... tres puntos
+       *
+       * *spread (propagar)
+       * Cuando se usa con cualquier iterable (como un array u objeto), actúa como "spread", introduciendo individualmente cada uno de sus elementos en la función.
+       *
+       * *rest
+       * El otro uso común de ... es unir una serie de valores en una array. En este caso, el operador se denomina "rest".
+       * 
+       */
+
+      //spread
+      const spread = (name, ps, atk, def, speed) => {
+        console.log("Nombre: ", name);
+        console.log("Vida: ", ps);
+        console.log("Ataque: ", atk);
+        console.log("Defensa: ", def);
+        console.log("Velocidad: ", speed);
+      };
+      let pokemon = ["Pikachu", 35, 55, 40, 90];
+      spread(...pokemon);
+
+      //rest
+      function f (...args){
+        console.log(args);
+      }
+      f(1, 2, 3, 4); //[1, 2, 3, 4]
+
+      function g (arg1, arg2, ...argsRest){
+        console.log(arg1, arg2, argsRest);
+      }
+      g(1, 2, 3, 4, 5); // 1 2 [3, 4, 5]
     </script>
-</body>
-
+  </body>
 </html>
