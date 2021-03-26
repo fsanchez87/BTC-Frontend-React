@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reto: Arrow functions</title>
-  </head>
-  <body>
-    <!-- Reto: Arrow functions
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto: Arrow functions</title>
+</head>
+
+<body>
+  <!-- Reto: Arrow functions
     ¿Serías capaz de hacer un programa como el que hemos hecho en la kata que no sea sensible a mayúsculas, palabras con acento y no cuente espacios? 
     
-    Es más, ¿podrías ir más allá y realizarlo por tercera vez contando el número de palabras y letras? -->
+    Es más, ¿podrías ir más allá y realizarlo por tercera vez contando el número de palabras y letras? 
+  
+  https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
+  
+  -->
 
-    <script></script>
-  </body>
+  <script>
+    const removeAccents = (str) => {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    }
+    var cadena = removeAccents('La uña se me Rompió después de beber cachaça');
+    console.log(cadena); // esto muestra en la consola el texto "La una se me rompio despues de beber cachaca"
+  </script>
+</body>
+
 </html>
