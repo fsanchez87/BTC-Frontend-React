@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reto: Parámetros por defecto</title>
-  </head>
-  <body>
-    <!-- Para el siguiente reto, serías capaz de crear una regla dado un nombre, que haga lo siguiente:
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto: Parámetros por defecto</title>
+</head>
+
+<body>
+  <!-- Para el siguiente reto, serías capaz de crear una regla dado un nombre, que haga lo siguiente:
     1- Quédate con las 2 primeras letras de él y las muestre en mayúsculas.
     2-Añade 2 dígitos a posteriori con la posición que ocupan éstas en el abecedario.
         EJ: Manuel -> MA141.
         M = 14
-        A = 1 -->
+        A = 1 
+      
+     https://dev.to/bladesensei/get-alphabet-position-value-of-a-letter-javascript-70p 
+    -->
 
-    <script></script>
-  </body>
+  <script>
+
+    const genera = (string) => {
+      cadena = string.substr(0, 2).toUpperCase();
+      salida = cadena;
+      for (let i = 0; i < cadena.length; i++) {
+        salida += cadena[i].charCodeAt(0) - 64;
+      }
+      console.log(salida);
+    }
+
+    genera("paco");
+
+  </script>
+</body>
+
 </html>
