@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Coche {
+        constructor(nombre, marca, velocidad) {
+          this.nombre = nombre;
+          this.marca = marca;
+          this.velocidad = velocidad;
+        }
+
+        acelerar() {
+          return this.velocidad + 30;
+        }
+
+        frenar() {
+          return this.velocidad = 0;
+        }
+      }
+
+      var choche1 = new Coche('León', 'Seat', 120);
+      console.log(choche1.acelerar());
+      console.log(choche1.frenar());
+      console.log(choche1.nombre);
+    </script>
+  </body>
+</html>

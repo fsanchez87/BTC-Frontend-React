@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Realiza el ejercicio anterior en una Interfaz de HTML, con representando con un color el resultado si el número es primo o viceversa. -->
+    <label for="num">Número:</label>
+    <input type="number" id="entrada"/>
+    <input type="button" value="calcula" onclick="Calcula()" /><br />
+    <p style="color: red; display: inline">No Primo</p>
+    <p style="color: blue; display: inline">Primo</p>
+
+    <script>
+      let numero = document.getElementById("entrada").value;
+      
+      const isPrime = (num) => {
+          for (let i = 2; i < num; i++) if (num % i === 0) return false;
+          return num > 1;
+        };
+        
+        const Calcula = () => {
+            console.log("asdf"+numero);
+            if (!isPrime(numero)) {
+                document.getElementById("entrada").style.borderColor = "red";
+                console.log("No primo");
+            } else {
+                document.getElementById("entrada").style.borderColor = "blue";
+                console.log("Primo");
+            }
+            console.log("este es el número "+ numero);  
+        };
+        </script>
+  </body>
+</html>

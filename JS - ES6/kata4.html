@@ -19,7 +19,7 @@
 
           if (nombre[i].charCodeAt(0) >= 97 && nombre[i].charCodeAt(0) <= 122) {
             
-            arr.push(nombre[i].charCodeAt(0) - 32);
+            arr.push(nombre[i].charCodeAt(0) - 32); // Restar 32 da letra Mayúscula
             arr[i] = String.fromCharCode(arr[i]);
           } else {
             arr.push(nombre[i].charCodeAt(0));

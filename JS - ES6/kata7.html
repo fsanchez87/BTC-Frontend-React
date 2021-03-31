@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Vehiculo {
+        constructor(marca, matricula, ruedas, anios, velocidad) {
+          this.marca = marca;
+          this.matricula = matricula;
+          this.ruedas = ruedas;
+          this.anios = anios;
+          this.velocidad = velocidad;
+        }
+
+        correr() {
+          return (this.velocidad += 10);
+        }
+
+        frenar() {
+          return (this.velocidad = 0);
+        }
+
+        aparcar() {
+          return console.log("Aparcao!");
+        }
+      }
+
+      class Coche extends Vehiculo {
+        constructor(marca, matricula, ruedas, puertas, anios, velocidad) {
+          super(marca, matricula, ruedas, puertas, anios, velocidad);
+          this.puertas = puertas;
+          this.consumo = "Diesel";
+        }
+      }
+
+      class Moto extends Vehiculo {
+        constructor(marca, matricula, ruedas, anios, velocidad) {
+          super(marca, matricula, ruedas, anios, velocidad);
+        }
+      }
+
+      let coche1 = new Coche("Seat", "12340", "4", "4", 2, 100);
+      console.log(coche1);
+      coche1.frenar();
+      coche1.correr();
+      console.log(coche1);
+      coche1.aparcar();
+
+      let moto1 = new Moto('Ducatti', '1234','2', 5, 200);
+      moto1.aparcar();
+      moto1.correr();
+      console.log(moto1);
+
+    </script>
+  </body>
+</html>

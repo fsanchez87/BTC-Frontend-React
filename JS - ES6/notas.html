@@ -51,7 +51,7 @@
        *
        * *rest
        * El otro uso común de ... es unir una serie de valores en una array. En este caso, el operador se denomina "rest".
-       * 
+       *
        */
 
       //spread
@@ -66,15 +66,100 @@
       spread(...pokemon);
 
       //rest
-      function f (...args){
+      function f(...args) {
         console.log(args);
       }
       f(1, 2, 3, 4); //[1, 2, 3, 4]
 
-      function g (arg1, arg2, ...argsRest){
+      function g(arg1, arg2, ...argsRest) {
         console.log(arg1, arg2, argsRest);
       }
       g(1, 2, 3, 4, 5); // 1 2 [3, 4, 5]
+
+      /**
+       * !Extensiones y Desestructuración
+       *
+       */
+      function getCar(fabricante, modelo, valor) {
+        return {
+          fabricante,
+          modelo,
+          valor,
+          ["fabricante " + fabricante]: true,
+          depreciar() {
+            this.valor -= 2500;
+          },
+        };
+      }
+      extensiones = getCar("seat", "leon", 15000);
+      console.log(extensiones);
+
+      /**
+       * !for of VS for in
+       */
+
+      let apellidos = ["perez", "garcia", "gomez"];
+      for (const setname of apellidos) {
+        console.log(setname);
+      }
+
+      for (const index in apellidos) {
+        console.log("apellidos[" + index + "] = " + apellidos[index]);
+      }
+
+      /**
+       *  !POO
+       */
+      console.log("POO------------------------------------");
+
+      class Tarea {
+        constructor(texto, id) {
+          console.log("Tarea instanciada");
+          this.texto = texto;
+          this.id = id;
+          this.fecha = new Date();
+        }
+
+        fechaHoy() {
+          this.fecha = new Date();
+        }
+      }
+
+      let tarea = new Tarea('comprar leche',1);
+      console.log(typeof tarea);
+      console.log(tarea);
+
+      /**
+       * !HERENCIA
+       */ 
+      console.log("HERENCIA------------------------------------");
+      class Rectangle{
+        constructor(height, width){
+          this.name = 'Rentangle';
+          this.height = height;
+          this.width = width;
+        }
+
+        sayName(){
+          console.log('Mi nombre es: ', this.name);
+        }
+
+        get area(){
+          return this.height * this.width;
+        }
+
+        set area(value){
+          this.height = this.width = Math.sqrt(value);
+        }
+      }
+
+      class Square extends Rectangle{
+        constructor(length){
+          super(length, length);
+          this.name = 'Square';
+        }
+      }
+
     </script>
   </body>
 </html>

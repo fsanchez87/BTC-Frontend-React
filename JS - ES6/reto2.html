@@ -19,11 +19,37 @@
   -->
 
   <script>
-    const removeAccents = (str) => {
+    const limpiarTexto = (str) => {
       return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     }
-    var cadena = removeAccents('La uña se me Rompió después de beber cachaça');
-    console.log(cadena); // esto muestra en la consola el texto "La una se me rompio despues de beber cachaca"
+
+    let contador = (string) => {
+      return string.split(" ").reduce((total, letter) => {
+        total[letter] ? total[letter]++ : (total[letter] = 1);
+        return total;
+      }, {});
+    };
+
+    let contadorConEspacios = (string) => {
+      return string.split(" ").reduce((total, letter) => {
+        total[letter] ? total[letter]++ : (total[letter] = 1);
+        return total;
+      }, {});
+    };
+
+    let texto = 'La uña se me Rompió después de beber cachaça';
+    let cadenaSinEspacios = limpiarTexto(texto).replace(/\s/g, "");
+    let cadenaconEspacios = limpiarTexto(texto);
+
+    console.log("No es sensible a mayúsculas, palabras con acento y no cuente espacios: ")
+    console.log(contador(cadenaSinEspacios));
+    arrLetras = [...cadenaSinEspacios];
+    console.log("El número de letras es: " + arrLetras.length);
+
+    console.log("Cuenta las letras: ")
+    console.log(contadorConEspacios(cadenaconEspacios));
+    arrPalabras = [...cadenaconEspacios.split(" ")];
+    console.log("El número de Palabras es: " + arrPalabras.length);
   </script>
 </body>
 
