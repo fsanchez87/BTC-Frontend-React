@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .contenedor {
+        width: 350px;
+        height: 80px;
+        padding: 10px;
+        border: 1px solid black;
+        margin-top: 25px;
+    }
+</style>
+<script>
+    // DRAG & DROP
+
+    // 1. Añadir a los elementos dragagble un gestor de eventos
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+    // 4. Ahora para poder dejar la imágen debemos evitar el comportamiento normal del objeto mediante ondragover.
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+    // 5. Añadimos la imágen en el contenedor utilizando javascript.
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+
 <body>
+
+    <!-- DRAG & DROP -->
+
+    <!-- 2. Ahora añadimos el evento en el elemento al que se lo queramos aplicar, mediante el atributo ondragstart. -->
+    <img id="imagen1" ondragstart="drag(event)" src="DEMO-almacenamientoWeb/images/crocodile.png" draggable="true">
+    <img id="imagen2" ondragstart="drag(event)" src="DEMO-almacenamientoWeb/images/firefoxos.png" draggable="true">
+
+    <!-- 3. establecer el contenedor que va a recibir el elemento que queremos mover y añadimos el atributo ondrop. -->
+    <div id="contenedor1" class="contenedor" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="contenedor2" class="contenedor" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
     <script src="notas.js"></script>
 </body>
+
 </html>
