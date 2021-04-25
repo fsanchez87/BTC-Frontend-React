@@ -90,6 +90,38 @@
         navigator.geolocation.clearWatch(watchID);
     </script>
 
+    <!-- WEBWORKERS -->
+    <p>
+        <strong>WEBWORKERS</strong> Count numbers: <output id="result"></output>
+    </p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+    <script>
+        console.log("WebWorkers");
+        console.log(".........................");
+
+        var worker;
+        function startWorker() {
+            // Comprueba si el navegador está habiltiado para WW
+            if (typeof Worker !== "undefined") {
+                if (typeof worker == "undefined") {
+                    worker = new Worker("./worker.js");
+                }
+
+                worker.onmessage = function (event) {
+                    document.getElementById("result").innerHTML = event.data;
+                };
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+            }
+        }
+
+        function stopWorker(){
+            worker.terminate();
+            worker = undefined;
+        }
+    </script>
+
     <script src="notas.js"></script>
 </body>
 
