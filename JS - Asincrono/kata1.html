@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KATA I: Calculadora con Callbacks</title>
+  </head>
+
+  <body>
+    <!-- Crear una calculadora con Suma, Resta, Multiplicación, División, Elevar y Raíces Cuadradas usando: ● DOM ● Callbacks -->
+    <input type="text" id="a" />
+    <input type="text" id="b" />
+    <button class="sumarBtn">+</button>
+    <button class="restarBtn">-</button>
+    <div class="resultado"></div>
+
+    <script>
+      const aInput = document.getElementById("a");
+      const bInput = document.getElementById("b");
+
+      const sumar = (a, b, cb) => {
+        const result = a + b;
+        cb(result);
+      };
+
+      const restar = (a, b, cb) => {
+        const result = a - b;
+        cb(result);
+      };
+
+      const escribirResultado = (result) => {
+        document.querySelector(".resultado").innerText = result;
+      };
+
+      document.querySelector(".sumarBtn").addEventListener("click", () => {
+        const a = +aInput.value; // + pasa a número
+        const b = +bInput.value;
+        sumar(a, b, escribirResultado);
+      });
+
+      document.querySelector(".restarBtn").addEventListener("click", () => {
+        const a = +aInput.value; // + pasa a número
+        const b = +bInput.value;
+        restar(a, b, escribirResultado);
+      });
+    </script>
+  </body>
+</html>
