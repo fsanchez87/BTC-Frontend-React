@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
 <style>
@@ -18,6 +18,9 @@
 </style>
 <script>
     // DRAG & DROP
+
+    console.log("DRAG & DROP");
+    console.log(".............................");
 
     // 1. Añadir a los elementos dragagble un gestor de eventos
     function drag(ev) {
@@ -36,16 +39,56 @@
 </script>
 
 <body>
-
     <!-- DRAG & DROP -->
+    <h2>DRAG & DROP</h2>
 
     <!-- 2. Ahora añadimos el evento en el elemento al que se lo queramos aplicar, mediante el atributo ondragstart. -->
-    <img id="imagen1" ondragstart="drag(event)" src="DEMO-almacenamientoWeb/images/crocodile.png" draggable="true">
-    <img id="imagen2" ondragstart="drag(event)" src="DEMO-almacenamientoWeb/images/firefoxos.png" draggable="true">
+    <img id="imagen1" ondragstart="drag(event)" src="DEMO-almacenamientoWeb/images/crocodile.png" draggable="true" />
+    <img id="imagen2" ondragstart="drag(event)" src="DEMO-almacenamientoWeb/images/firefoxos.png" draggable="true" />
 
     <!-- 3. establecer el contenedor que va a recibir el elemento que queremos mover y añadimos el atributo ondrop. -->
     <div id="contenedor1" class="contenedor" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     <div id="contenedor2" class="contenedor" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    <!-- GEOLOCALIZACIÓN -->
+    <h2>Geolocalización</h2>
+    <script>
+        console.log("Geolocalización");
+        console.log(".............................");
+        // Comprobar si el navegador soporta geo
+        if ("geolocation" in navigator) {
+            console.log("Existe geolocation");
+        } else {
+            console.log("No existe geolocation");
+        }
+
+        // Posicionar mediante getCurrentPosition()
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                console.log(
+                    "Latitud-> " +
+                    position.coords.latitude +
+                    " Longitud -> " +
+                    position.coords.longitude
+                );
+            },
+            function (error) {
+                console.log("Error -> " + console.error());
+            }
+        );
+
+        // Posicionar mediante watchPosition(). Devuelve el ID del rastreador
+        var watchID = navigator.geolocation.watchPosition(function (position) {
+            console.log(
+                "Funciones " + position.coords.latitude,
+                position.coords.longitude
+            );
+        });
+        console.log("watchID " + watchID);
+
+        // Elimiar el rastreo
+        navigator.geolocation.clearWatch(watchID);
+    </script>
 
     <script src="notas.js"></script>
 </body>
