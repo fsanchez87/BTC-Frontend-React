@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var hello = new Promise(function (resuelve, reject) {
+      resuelve("Hola");
+    });
+
+    hello
+      .then((str) => `${str} Mundo`)
+      .then((str) => `${str}!`)
+      .then((str) => console.log(str));
+  </script>
+
+  <script>
+    /**
+     *Chaining then
+     */
+    var resuelveteEnUno = () => new Promise((res, rej) => {
+      res(1);
+    });
+
+    var sumaUno = (val) => new Promise((resolve, reject) => {
+      resolve(val + 1);
+    });
+
+    resuelveteEnUno()
+      .then(sumaUno)
+      .then(sumaUno)
+      .then((val) => console.log(val));
+  </script>
+
+  <script>
+
+    const edad = 20;
+    const promise = new Promise((resolve, reject) => {
+      if (edad >= 18) {
+        resolve("Eres mayor de 18");
+      } else {
+        reject("No eres mayor");
+      }
+    });
+
+    promise
+      .then((value) => {
+        return value + ", puedes entrar";
+      })
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        console.log("Siempre entra");
+      });
+
+  </script>
+
+  <script>
+    var resolveIn = (delay) =>
+      new Promise((resolve) => {
+        setTimeout(() => resolve(delay), delay);
+      });
+
+    // devuelve una promesa que termina correctamente cuando todas las promesas en el argumento iterable han sido concluidas con éxito
+    Promise.all([resolveIn(100), resolveIn(300), resolveIn(500)]).then(
+      (values) => {
+        console.log(values);
+      }
+    );
+
+    /**
+     * Promise.race(iterable) retorna una promesa que se cumplirá o no tan pronto como una de las promesas del argumento iterable se cumpla o se rechace, con el valor o razón de rechazo de ésta.
+     */
+    var p1 = new Promise((resolve, reject) => {
+      setTimeout(resolve, 500, "uno");
+    });
+
+    var p2 = new Promise((resolve, reject) => {
+      setTimeout(resolve, 100, "dos");
+    });
+
+    Promise.race([p1, p2]).then((value) => {
+      console.log(value);
+      // Ambas se resuelven, pero la p2 antes.
+    });
+
+    var p3 = new Promise((resolve, reject) => {
+      setTimeout(resolve, 100, "tres");
+    });
+
+    var p4 = new Promise((resolve, reject) => {
+      setTimeout(reject, 500, "cuatro");
+    });
+
+    Promise.race([p3, p4]).then(
+      (value) => {
+        console.log(value);
+        // p3 es más rápida, así que se resuelve el race
+      },
+      (reason) => {
+        console.log(reason);
+      }
+    );
+  </script>
+
+  <script>
+    /**
+      * PRACTICANDO CON PROMESAS
+    */
+    const edad = 22;
+
+    const promise = new Promise((resolve, reject) => {
+      if (edad >= 18) {
+        resolve("Mayor ");
+      } else {
+        reject("Menor");
+      }
+    });
+
+    promise
+      .then((value) => {
+        return value;
+      })
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        console.log("Siempre entra FINALLY");
+      });
+
+  </script>
+</body>
+
+</html>
