@@ -11,14 +11,16 @@ const getMovieHtml = (movie) => {
 };
 
 const getMovieDetailedHtml = (movie) => {
+  getMovieCredits(movie.id);
   return `
-    <div class="movie" onclick="getMovieDetailed(${movie.id})">
-      <img src="http://image.tmdb.org/t/p/w300${movie.poster_path}" alt="imagen de la pelicula">
-      <h2>${movie.title}</h2>
-      <span>Popularidad: ${movie.popularity}</span>
-      <p>Descripción: ${movie.overview}</p>
-      
-    </div>`;
+  <div class="movieDetailed">
+  <img src="http://image.tmdb.org/t/p/w300${movie.poster_path}" alt="imagen de la pelicula">
+  <h2>${movie.title}</h2>
+  <span>Popularidad: ${movie.popularity}</span>
+  <p>Descripción: <i>${movie.overview}</i></p>      
+  <div class="movieCredits">
+  </div>
+  </div>`;
 };
 
 const renderMovies = (movies) => {
@@ -26,6 +28,36 @@ const renderMovies = (movies) => {
   for (const movie of movies) {
     document.querySelector("main.movies").innerHTML += getMovieHtml(movie);
   }
+};
+
+const getMovieCreditsHtml = (cast) => {
+  return `
+  <div class="cast">
+  <img src="http://image.tmdb.org/t/p/w92${cast.profile_path}"alt="imagen de la actor">
+  <p>${cast.name}</p> 
+  </div>
+  `;
+};
+
+const renderMovieCredits = (credits) => {
+  for (let index = 0; index < 5; index++) {
+    const cast = credits[index];
+    document.querySelector(".movieCredits").innerHTML +=
+      getMovieCreditsHtml(cast);
+  }
+};
+
+// con PROMESAS
+const getMovieCredits = (movie_id) => {
+  fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=e39857b2e071fb83dba7d82258147a51&language=es-ES`
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      const credits = res.cast;
+      renderMovieCredits(credits);
+    })
+    .catch(console.error);
 };
 
 // Con PROMESAS

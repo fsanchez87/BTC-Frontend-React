@@ -38,3 +38,25 @@ header span:hover {
     flex-direction: column;
     width: 11.5625em;
 }
+
+.movieDetailed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10em 3em;
+    text-align: justify;
+    line-height: 2.0em;
+    width: 100vw;
+}
+
+.movieCredits {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cast {
+    padding: 0.5em;
+    text-align: center;
+
+}
