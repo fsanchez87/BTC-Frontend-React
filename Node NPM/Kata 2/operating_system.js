@@ -1,3 +1,7 @@
-// Creamos un carpeta process y dentro un fichero operating_system.js
+/**
+ * Creamos un carpeta process y dentro un fichero operating_system.js
+ * Tenemos que pintar por pantalla que sistema operativo estamos utilizando.
+ *
+ */
 
-// Tenemos que pintar por pantalla que sistema operativo estamos utilizando.
+console.log(`This platform is ${process.platform}`);
