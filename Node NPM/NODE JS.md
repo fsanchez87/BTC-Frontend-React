@@ -12,13 +12,13 @@ Para leer los archivos desde **process.argv**
 
 
 
-#### Basado en módulos
+## Basado en módulos
 
 Para utilizar funciones ubicadas en otros ficheros`var doubleNumber = require('./duble.js')`
 
 
 
-#### Process
+## Process
 
 Variable global
 
@@ -34,7 +34,7 @@ Id del proceso que se está ejecutando `proccess.pid`
 
 
 
-#### Node Package Manager
+## Node Package Manager
 
 La manera de trabajar es utilizar el **package.json** contiene toda la informaión de nuestro proyecto.
 
@@ -46,7 +46,7 @@ No es necesario tener el archivo package.json
 
 
 
-##### Instalación de paquetes local
+### Instalación de paquetes local
 
 `npm install package-name` se guarda en **node_modules/package-name**
 
@@ -60,7 +60,7 @@ Instalar un paquete de forma global `npm install package-name -g`
 
 
 
-#### Dependencias de producción vs desarrollo
+## Dependencias de producción vs desarrollo
 
 `npm install [nombe del paquete]`
 
@@ -68,7 +68,7 @@ Instalar un paquete de forma global `npm install package-name -g`
 
 
 
-#### Otras instrucciones
+## Otras instrucciones
 
 Todo el listado `npm ls`
 
@@ -84,7 +84,7 @@ Actualizar paquete determinado `npm update [nombre del paquete]`
 
 
 
-#### Scripts
+## Scripts
 
 Definición de tareas o scripts en el package.json que podemos lanzar desde la ventana shell.
 
@@ -92,27 +92,30 @@ Definición de tareas o scripts en el package.json que podemos lanzar desde la v
 	`"produccion": "node app.js"`
 `}`
 
+Para ejecutarlo `$ npm run produccion`
 
 
-#### Core Modules
+
+## Core Modules
 
 Paquetes preinstalados, para usarlos `require`
 
 
 
-#### Module scope
+## Module scope
 
 Hablamos de que tenemos al alcance, que variables globales se pueden acceder en cualquier archivo
 
 
 
+## Multi Hilo con Workers
+Mínimo node 10.5
+### ¿Para qué sirven?
+Procesar gran cantidad de datos
 
+### ¿Qué son Worker, isMainThread,parentPort y workerData?
 
-
-
-
-
-
-
-
-
+- **Worker:** es un objeto del cual podemos crear instancias, las cuales se ejecutan en un hilo de procesamiento diferente al actual.
+- **isMainThread:** es un Boolean que nos indica si estamos en el hilo de ejecución desde el que hemos arrancado mediante Node.
+- **workerData:**  es una clonación de otro objeto para crear comunicación entre workers, ya que al pasar un objeto por parámetros en JavaScript se hace por referencia, cosa que se evita con este método.
+- **parentPort:** Nos ayuda a enviar información al padre del Hilo.
